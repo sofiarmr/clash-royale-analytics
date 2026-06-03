@@ -349,10 +349,15 @@ with mobile_nav:
 # SIDEBAR PARA ESCRITORIO
 # ======================
 
-st.sidebar.image(
-    logo,
-    width=150
-)
+with st.sidebar:
+
+    c1, c2, c3 = st.columns([1,2,1])
+
+    with c2:
+        st.image(
+            logo,
+            width=150
+        )
 
 st.sidebar.markdown(
     """
@@ -423,27 +428,7 @@ if menu == "Inicio":
             df["type"].nunique()
         )
 
-    st.markdown(
-    """
-    <div class="info-box">
-        <h2>🏆 Clash Royale Analytics Pro</h2>
-
-        <div class="info-text">
-            Esta aplicación analiza un dataset de cartas de Clash Royale
-            mediante técnicas de Ciencia de Datos, visualización,
-            aprendizaje automático, sistemas de recomendación,
-            scraping web, análisis de sentimientos e inteligencia artificial.
-            <br><br>
-            El objetivo principal es descubrir patrones entre las cartas,
-            comparar sus características y construir herramientas interactivas
-            que permitan consultar, analizar y predecir información relevante
-            del juego.
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
+    
 
 # =====================================
 # EXPLORACIÓN
