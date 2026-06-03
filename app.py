@@ -49,6 +49,7 @@ st.markdown(
 )
 
 
+
 # ======================
 # FUNCIONES AUXILIARES
 # ======================
@@ -387,18 +388,48 @@ for key, label in opciones.items():
     ):
         st.query_params["page"] = key
         st.rerun()
+
 # =====================================
 # INICIO
 # =====================================
 
 if menu == "Inicio":
 
-    st.markdown(
-        """
-        <div class="hero"></div>
-        """,
-        unsafe_allow_html=True
+    imagenes = [
+        "assets/banner.jpg",
+        "assets/banner1.jpg",
+        "assets/banner2.jpg",
+        "assets/banner3.jpg",
+        "assets/banner4.jpg"
+    ]
+
+    if "banner_actual" not in st.session_state:
+        st.session_state.banner_actual = 0
+
+    st.image(
+        imagenes[st.session_state.banner_actual],
+        use_container_width=True
     )
+
+    col1, col2, col3 = st.columns([5, 2, 5])
+
+    with col2:
+
+        b1, b2 = st.columns(2)
+
+        with b1:
+            if st.button("◀", key="banner_prev"):
+                st.session_state.banner_actual = (
+                    st.session_state.banner_actual - 1
+                ) % len(imagenes)
+                st.rerun()
+
+        with b2:
+            if st.button("▶", key="banner_next"):
+                st.session_state.banner_actual = (
+                    st.session_state.banner_actual + 1
+                ) % len(imagenes)
+                st.rerun()
 
     st.markdown("<br>", unsafe_allow_html=True)
 
@@ -428,7 +459,6 @@ if menu == "Inicio":
             df["type"].nunique()
         )
 
-    
 
 # =====================================
 # EXPLORACIÓN
