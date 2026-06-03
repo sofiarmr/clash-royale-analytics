@@ -1,0 +1,619 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Lilita+One&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ==========================================
+   GENERAL
+========================================== */
+
+html,
+body,
+[class*="css"]{
+    font-family:'Poppins',sans-serif;
+}
+
+.stApp{
+    background:#f4f7fb !important;
+    color:#111827 !important;
+}
+
+.block-container{
+    padding-top:2.5rem !important;
+    padding-left:1.7rem !important;
+    padding-right:1.7rem !important;
+    padding-bottom:3rem !important;
+    max-width:100% !important;
+}
+
+/* ==========================================
+   HEADER STREAMLIT
+========================================== */
+
+header[data-testid="stHeader"]{
+    display:block !important;
+    visibility:visible !important;
+    background:transparent !important;
+    height:3rem !important;
+}
+
+[data-testid="stToolbar"],
+[data-testid="stDecoration"]{
+    display:none !important;
+}
+
+/* ==========================================
+   MENÚ MÓVIL NATIVO
+========================================== */
+
+.st-key-mobile_nav{
+    display:none;
+}
+
+@media(max-width:900px){
+
+    section[data-testid="stSidebar"]{
+        display:none !important;
+    }
+
+    .st-key-mobile_nav{
+        display:block !important;
+
+        position:sticky;
+        top:0;
+        z-index:999999;
+
+        margin:-2.5rem -1rem 1.5rem -1rem;
+        padding:12px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #2f80ff,
+                #1d5fd1,
+                #1046a8
+            );
+
+        border-bottom:5px solid #ffc107;
+        box-shadow:0 8px 20px rgba(0,0,0,.25);
+    }
+
+    .st-key-mobile_nav button{
+        background:
+            linear-gradient(
+                180deg,
+                #ffe066,
+                #ffc107,
+                #ff9800
+            ) !important;
+
+        color:#111827 !important;
+        font-weight:900 !important;
+        border:3px solid #111827 !important;
+        border-radius:16px !important;
+    }
+
+    .block-container{
+        padding-left:1rem !important;
+        padding-right:1rem !important;
+    }
+
+    .hero{
+        height:55vh !important;
+        margin-top:0 !important;
+        border-radius:0 0 18px 18px;
+        background-position:center center;
+    }
+
+    h1{
+        font-size:2.2rem !important;
+        -webkit-text-stroke:1.2px #000;
+    }
+
+    h2{
+        font-size:1.55rem !important;
+        -webkit-text-stroke:1px #000;
+    }
+
+    h3{
+        font-size:1.25rem !important;
+        -webkit-text-stroke:.8px #000;
+    }
+
+    [data-testid="stMetric"]{
+        padding:14px !important;
+        border-radius:16px !important;
+    }
+
+    .stTabs [data-baseweb="tab-list"]{
+        overflow-x:auto !important;
+        flex-wrap:nowrap !important;
+        padding-top:20px !important;
+    }
+
+    .stTabs [data-baseweb="tab"]{
+        min-width:max-content !important;
+        padding:8px 12px !important;
+        font-size:12px !important;
+    }
+}
+
+@media(min-width:901px){
+
+    .st-key-mobile_nav{
+        display:none !important;
+    }
+
+    section[data-testid="stSidebar"]{
+        display:block !important;
+        visibility:visible !important;
+        width:21rem !important;
+        min-width:21rem !important;
+        transform:translateX(0) !important;
+    }
+}
+/* ==========================================
+   SIDEBAR DESKTOP
+========================================== */
+
+section[data-testid="stSidebar"]{
+    background:
+        linear-gradient(
+            180deg,
+            #2f80ff 0%,
+            #1d5fd1 45%,
+            #1046a8 100%
+        ) !important;
+
+    border-right:5px solid #ffc107 !important;
+
+    box-shadow:
+        8px 0 25px rgba(0,0,0,.25);
+}
+
+section[data-testid="stSidebar"] *{
+    color:white !important;
+    font-weight:700;
+}
+
+section[data-testid="stSidebar"] img{
+    display:block;
+    margin:18px auto 12px auto;
+    border-radius:18px;
+    border:4px solid #ffc107;
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.35);
+}
+
+section[data-testid="stSidebar"] h2{
+    font-family:'Luckiest Guy',cursive !important;
+    font-size:1.45rem !important;
+    line-height:1.1 !important;
+    text-align:center !important;
+
+    color:white !important;
+    -webkit-text-stroke:1.2px #000;
+
+    text-shadow:
+        2px 2px 0 #000,
+        4px 4px 0 rgba(0,0,0,.25);
+
+    letter-spacing:1px;
+    margin-bottom:18px !important;
+}
+
+/* Botones visuales del menú */
+
+.menu-button,
+.menu-button-active{
+    width:100%;
+    height:54px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 18px;
+
+    border-radius:17px;
+
+    font-size:15px;
+    font-weight:900;
+
+    margin-bottom:10px;
+
+    transition:.25s ease;
+}
+
+.menu-button{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.24),
+            rgba(255,255,255,.10)
+        );
+
+    border:2px solid rgba(255,255,255,.40);
+
+    color:white !important;
+
+    box-shadow:
+        inset 0 2px 0 rgba(255,255,255,.20),
+        0 5px 10px rgba(0,0,0,.18);
+}
+
+.menu-button-active{
+    background:
+        linear-gradient(
+            180deg,
+            #ffe066 0%,
+            #ffc107 45%,
+            #ff9800 100%
+        );
+
+    border:3px solid #111827;
+
+    color:#111827 !important;
+
+    box-shadow:
+        inset 0 2px 0 rgba(255,255,255,.45),
+        0 7px 0 #b66d00,
+        0 12px 18px rgba(0,0,0,.25);
+}
+
+.menu-button:hover,
+.menu-button-active:hover{
+    transform:translateX(5px);
+}
+
+/* Botones reales invisibles */
+
+section[data-testid="stSidebar"] .stButton{
+    height:54px !important;
+    margin-top:-64px !important;
+    margin-bottom:10px !important;
+    opacity:0 !important;
+    position:relative !important;
+    z-index:50 !important;
+}
+
+section[data-testid="stSidebar"] .stButton > button{
+    height:54px !important;
+    width:100% !important;
+    cursor:pointer !important;
+    border-radius:17px !important;
+}
+
+/* ==========================================
+   HERO / PORTADA
+========================================== */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:90vh;
+    margin-top:-2.5rem;
+    border-radius:0 0 28px 28px;
+    overflow:hidden;
+
+    background-image:
+        url("https://wallpapers.com/images/featured/clash-royale-67pap6bmkrprchab.jpg");
+
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.30);
+
+    border-bottom:6px solid #ffc107;
+}
+
+/* ==========================================
+   TÍTULOS
+========================================== */
+
+h1,
+h2,
+h3{
+    font-family:'Luckiest Guy','Lilita One',cursive !important;
+    color:white !important;
+    -webkit-text-fill-color:white !important;
+    -webkit-text-stroke:1.8px #000;
+    text-shadow:
+        3px 3px 0 #000,
+        5px 5px 0 rgba(0,0,0,.18);
+    letter-spacing:1px;
+}
+
+h1{
+    font-size:3.4rem !important;
+    margin-top:1rem !important;
+    margin-bottom:1.4rem !important;
+}
+
+h2{
+    font-size:2.2rem !important;
+}
+
+h3{
+    font-size:1.7rem !important;
+}
+
+p,
+li,
+label{
+    color:#111827 !important;
+}
+
+/* ==========================================
+   INFO BOX
+========================================== */
+
+.info-box{
+    background:white;
+    border-radius:24px;
+    padding:32px;
+    color:#111827;
+    border:4px solid #dbe7ff;
+    box-shadow:
+        0 12px 26px rgba(0,0,0,.16);
+    margin-top:25px;
+}
+
+.info-text{
+    color:#111827 !important;
+    font-size:16px;
+    font-weight:500;
+    line-height:1.7;
+}
+
+/* ==========================================
+   MÉTRICAS
+========================================== */
+
+[data-testid="stMetric"]{
+    background:white;
+    border-radius:22px;
+    padding:22px;
+    border:4px solid #dbe7ff;
+    box-shadow:
+        0 10px 22px rgba(0,0,0,.13);
+    transition:.25s ease;
+}
+
+[data-testid="stMetric"]:hover{
+    transform:translateY(-5px) scale(1.02);
+    border-color:#ffc107;
+}
+
+[data-testid="stMetricLabel"]{
+    color:#1d5fd1 !important;
+    font-weight:900 !important;
+}
+
+[data-testid="stMetricValue"]{
+    font-family:'Luckiest Guy',cursive !important;
+    color:#111827 !important;
+}
+
+/* ==========================================
+   TABS
+========================================== */
+
+.stTabs [data-baseweb="tab-list"]{
+    gap:10px;
+    margin-bottom:20px;
+    padding-top:50px;
+}
+
+.stTabs [data-baseweb="tab"]{
+    background:white;
+    border:3px solid #2f80ff;
+    border-radius:16px;
+    padding:10px 18px;
+    color:#1d5fd1 !important;
+    font-weight:900 !important;
+    transition:.25s ease;
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.12);
+}
+
+.stTabs [data-baseweb="tab"] p{
+    color:#1d5fd1 !important;
+    font-weight:900 !important;
+}
+
+.stTabs [aria-selected="true"]{
+    background:
+        linear-gradient(
+            180deg,
+            #ffc107,
+            #ff9800
+        ) !important;
+
+    border:3px solid #111827 !important;
+}
+
+.stTabs [aria-selected="true"] p{
+    color:#111827 !important;
+}
+
+/* ==========================================
+   BOTONES GENERALES
+========================================== */
+
+.stButton > button{
+    width:100%;
+    min-height:52px;
+    border:none;
+    border-radius:18px;
+    font-size:16px;
+    font-weight:900;
+    color:#111827 !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe066 0%,
+            #ffc107 45%,
+            #ff9800 100%
+        );
+
+    box-shadow:
+        inset 0 3px 0 rgba(255,255,255,.55),
+        0 7px 0 #b66d00,
+        0 12px 20px rgba(0,0,0,.24);
+
+    transition:.18s ease;
+}
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.stSelectbox > div > div,
+.stMultiSelect > div > div,
+.stTextInput > div > div > input,
+.stTextArea textarea,
+.stFileUploader{
+    border-radius:16px !important;
+}
+
+.stTextInput input,
+.stTextArea textarea{
+    background:white !important;
+    color:#111827 !important;
+    border:3px solid #dbe7ff !important;
+    font-weight:600;
+}
+
+div[data-baseweb="select"] > div{
+    background:white !important;
+    border:3px solid #dbe7ff !important;
+    border-radius:16px !important;
+    color:#111827 !important;
+    font-weight:700;
+}
+
+/* ==========================================
+   DATAFRAMES / GRÁFICAS
+========================================== */
+
+[data-testid="stDataFrame"],
+.js-plotly-plot{
+    background:white !important;
+    border-radius:22px;
+    padding:15px;
+    border:3px solid #dbe7ff;
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.14);
+}
+
+/* ==========================================
+   ALERTAS
+========================================== */
+
+.stAlert{
+    border-radius:18px !important;
+    border:3px solid #dbe7ff !important;
+}
+
+.stAlert p,
+.stAlert div,
+.stAlert span{
+    color:#111827 !important;
+    font-weight:600;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+    section[data-testid="stSidebar"]{
+        display:none !important;
+    }
+
+    .mobile-navbar{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+
+        position:sticky;
+        top:0;
+
+        z-index:999999;
+
+        margin:-2.5rem -1rem 1.5rem -1rem;
+        padding:12px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #2f80ff,
+                #1d5fd1,
+                #1046a8
+            );
+
+        border-bottom:5px solid #ffc107;
+
+        box-shadow:
+            0 8px 20px rgba(0,0,0,.25);
+    }
+
+    .block-container{
+        padding-left:1rem !important;
+        padding-right:1rem !important;
+    }
+
+    .hero{
+        height:55vh !important;
+        margin-top:0 !important;
+        border-radius:0 0 18px 18px;
+    }
+
+    h1{
+        font-size:2.2rem !important;
+        -webkit-text-stroke:1.2px #000;
+    }
+
+    h2{
+        font-size:1.55rem !important;
+        -webkit-text-stroke:1px #000;
+    }
+
+    h3{
+        font-size:1.25rem !important;
+        -webkit-text-stroke:.8px #000;
+    }
+
+    [data-testid="stMetric"]{
+        padding:14px !important;
+        border-radius:16px !important;
+    }
+
+    .stTabs [data-baseweb="tab-list"]{
+        overflow-x:auto !important;
+        flex-wrap:nowrap !important;
+        padding-top:20px !important;
+    }
+
+    .stTabs [data-baseweb="tab"]{
+        min-width:max-content !important;
+        padding:8px 12px !important;
+        font-size:12px !important;
+    }
+}
+
+@media(min-width:901px){
+
+    .mobile-navbar{
+        display:none !important;
+    }
+
+    section[data-testid="stSidebar"]{
+        display:block !important;
+        visibility:visible !important;
+        width:21rem !important;
+        min-width:21rem !important;
+        transform:translateX(0) !important;
+    }
+}
