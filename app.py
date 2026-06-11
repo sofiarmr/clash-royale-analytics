@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import base64
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -47,6 +48,29 @@ st.markdown(
     f"<style>{css}</style>",
     unsafe_allow_html=True
 )
+
+
+# ======================
+# FUNCIONES PDF
+# ======================
+
+def mostrar_pdf(ruta_pdf):
+    with open(ruta_pdf, "rb") as archivo_pdf:
+        base64_pdf = base64.b64encode(
+            archivo_pdf.read()
+        ).decode("utf-8")
+
+    st.markdown(
+        f"""
+        <iframe
+            src="data:application/pdf;base64,{base64_pdf}"
+            width="100%"
+            height="850px"
+            style="border:4px solid #dbe7ff; border-radius:20px; box-shadow:0 10px 24px rgba(0,0,0,.14);">
+        </iframe>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 
@@ -317,6 +341,7 @@ opciones = {
     "Carga Archivos": "Carga Archivos",
     "Sentimientos": "Sentimientos",
     "Asistente IA": "Asistente IA",
+    "Manual de Usuario": "Manual de Usuario",
     "Acerca": "Acerca"
 }
 
@@ -1683,6 +1708,48 @@ elif menu == "Asistente IA":
             respuesta
         )
 
+
+
+# =====================================
+# MANUAL DE USUARIO
+# =====================================
+
+elif menu == "Manual de Usuario":
+
+    st.title(
+        "📘 Manual de Usuario"
+    )
+
+    st.markdown(
+        """
+        En esta sección se muestra el manual oficial de uso de
+        **Clash Royale Analytics Pro**. El documento explica el objetivo
+        del sistema, sus módulos principales y la forma correcta de utilizar
+        cada apartado de la aplicación.
+        """
+    )
+
+    ruta_manual = "assets/manual_usuario_clash_royale_analytics.pdf"
+
+    try:
+        with open(ruta_manual, "rb") as pdf_file:
+            pdf_bytes = pdf_file.read()
+
+        st.download_button(
+            label="📥 Descargar Manual de Usuario",
+            data=pdf_bytes,
+            file_name="Manual_Usuario_Clash_Royale_Analytics_Pro.pdf",
+            mime="application/pdf"
+        )
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        mostrar_pdf(ruta_manual)
+
+    except FileNotFoundError:
+        st.error(
+            "No se encontró el archivo del manual. Verifique que el PDF esté guardado en assets/manual_usuario_clash_royale_analytics.pdf"
+        )
 
 # =====================================
 # ACERCA
