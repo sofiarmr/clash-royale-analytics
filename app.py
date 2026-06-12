@@ -524,7 +524,7 @@ if menu == "Inicio":
     """
 <div class="info-box">
 
-<h2>🎬 Demo de Data Storytelling</h2>
+<h2>🎬 Storytelling</h2>
 
 <span>
 En este video se presenta una demostración del análisis realizado a partir del dataset de cartas de Clash Royale, explicando los hallazgos principales del análisis exploratorio, las hipótesis planteadas y los resultados obtenidos mediante modelos de Machine Learning.
