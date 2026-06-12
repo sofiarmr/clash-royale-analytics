@@ -458,6 +458,40 @@ if menu == "Inicio":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
+    col_foto, col_info = st.columns([1, 2])
+
+    with col_foto:
+
+        st.image(
+            "assets/foto.jpeg",
+            width=260
+        )
+
+    with col_info:
+
+        with col_info:
+
+            st.markdown(
+        """
+        <div class="info-box">
+
+        <h2>👩‍💻 SOFÍA MARGARITA ROMERO RODRÍGUEZ</h2>
+
+        <span>
+        Estudiante de Ingeniería en Sistemas y Redes Informáticas con interés en Ciencia de Datos,
+        desarrollo de software, diseño de interfaces y análisis de información.
+        <br><br>
+        Este portafolio presenta una aplicación interactiva basada en datos de Clash Royale,
+        integrando visualización, machine learning, recomendación, scraping e inteligencia artificial.
+        </span>
+
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
     c1, c2, c3, c4 = st.columns(4)
 
     with c1:
@@ -483,6 +517,29 @@ if menu == "Inicio":
             "⚔️ Tipos",
             df["type"].nunique()
         )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    st.markdown(
+    """
+<div class="info-box">
+
+<h2>🎬 Demo de Data Storytelling</h2>
+
+<span>
+En este video se presenta una demostración del análisis realizado a partir del dataset de cartas de Clash Royale, explicando los hallazgos principales del análisis exploratorio, las hipótesis planteadas y los resultados obtenidos mediante modelos de Machine Learning.
+</span>
+
+</div>
+    """,
+    unsafe_allow_html=True
+)
+
+    st.video(
+        "https://www.youtube.com/watch?v=TU_VIDEO_AQUI"
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
 
 # =====================================
@@ -920,6 +977,28 @@ elif menu == "Exploración":
             st.metric(
                 "Correlación",
                 round(correlacion, 3)
+            )
+
+            st.markdown("<br>", unsafe_allow_html=True)
+
+            c1, c2, c3 = st.columns(3)
+
+            with c1:
+                st.metric(
+                 "🏆 Carta más resistente",
+                "Golem"
+            )
+
+            with c2:
+                st.metric(
+                 "❤️ Mayor HP",
+                "5100"
+            )
+
+            with c3:
+                st.metric(
+                 "📈 Correlación",
+                "0.662"
             )
 
             if correlacion > 0:

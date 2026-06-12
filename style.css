@@ -403,6 +403,12 @@ label{
     line-height:1.7;
 }
 
+.info-box span{
+    color:#111827;
+    font-size:16px;
+    font-weight:500;
+    line-height:1.7;
+}
 /* ==========================================
    MÉTRICAS
 ========================================== */
