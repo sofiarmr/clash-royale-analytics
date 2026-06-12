@@ -536,7 +536,7 @@ En este video se presenta una demostración del análisis realizado a partir del
 )
 
     st.video(
-        "https://www.youtube.com/watch?v=TU_VIDEO_AQUI"
+        "https://youtu.be/luSodC9KUp4?feature=shared"
     )
 
     st.markdown("<br>", unsafe_allow_html=True)
